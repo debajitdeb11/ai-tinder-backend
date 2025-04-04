@@ -6,6 +6,7 @@ import in.trelic.tinder_ai_backend.conversations.ConversationRepository;
 import in.trelic.tinder_ai_backend.profile.Gender;
 import in.trelic.tinder_ai_backend.profile.Profile;
 import in.trelic.tinder_ai_backend.profile.ProfileRepository;
+import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,12 +22,17 @@ public class TinderAiBackendApplication implements CommandLineRunner {
 	private ProfileRepository profileRepository;
 	@Autowired
 	private ConversationRepository conversationRepository;
+	@Autowired
+	private ChatClient chatClient;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TinderAiBackendApplication.class, args);
 	}
 
 	public void run(String... args) {
+
+		String res = chatClient.prompt().user("Who is Debajit Deb from Crisis24?").call().content();
+
 		Profile profile = new Profile(
 				"1",
 				"Debajit",
