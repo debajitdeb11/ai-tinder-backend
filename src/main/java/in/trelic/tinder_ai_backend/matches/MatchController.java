@@ -22,8 +22,6 @@ public class MatchController {
         this.profileRepository = profileRepository;
         this.conversationRepository = conversationRepository;
         this.matchRepository = matchRepository;
-
-        this.matchRepository.deleteAll();
     }
 
     @GetMapping

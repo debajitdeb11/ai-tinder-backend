@@ -19,8 +19,6 @@ public class ConversationController {
         this.conversationRepository = conversationRepository;
         this.conversationService = conversationService;
         this.profileRepository = profileRepository;
-
-        this.conversationRepository.deleteAll();
     }
 
     @GetMapping("/conversations/{conversationId}")

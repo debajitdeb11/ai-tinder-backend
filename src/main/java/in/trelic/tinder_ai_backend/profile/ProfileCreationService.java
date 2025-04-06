@@ -33,7 +33,6 @@ public class ProfileCreationService {
                     new FileReader("profiles.json"),
                     new TypeToken<ArrayList<Profile>>() {}.getType()
             );
-            profileRepository.deleteAll();
             profileRepository.saveAll(existingProfiles);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
